@@ -28,4 +28,12 @@ interface TransactionRepository {
      * @return A list of transactions for the specified account within the specified [date].
      */
     suspend fun findBy(account: Account, date: YearMonth): List<Transaction>
+
+    /**
+     * Adds a transaction to the repository.
+     *
+     * @param transaction The transaction to be added to the repository.
+     * @return `true` if the transaction was successfully added; `false` otherwise.
+     */
+    suspend fun add(transaction: Transaction): Boolean
 }

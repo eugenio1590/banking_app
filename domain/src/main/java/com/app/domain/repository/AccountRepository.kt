@@ -19,4 +19,12 @@ interface AccountRepository {
      * @throws Exception If there is an error during the retrieval operation.
      */
     suspend fun findBy(user: User): List<Account>
+
+    /**
+     * Updates an account in the repository.
+     *
+     * @param account The account to be updated in the repository.
+     * @return `true` if the account was successfully updated; `false` otherwise.
+     */
+    suspend fun update(account: Account): Boolean
 }

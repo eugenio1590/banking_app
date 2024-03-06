@@ -1,0 +1,18 @@
+package com.app.domain.model
+
+/**
+ * A business class representing a financial transaction.
+ *
+ * @property type The type of transaction, as defined by the [Type] enum.
+ * @property amount The amount of money involved in the transaction.
+ */
+data class Transaction(val type: Type, val amount: Double) {
+
+    /**
+     * Enum class defining the types of transactions.
+     */
+    enum class Type {
+        DEPOSIT,
+        WITHDRAWAL
+    }
+}

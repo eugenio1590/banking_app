@@ -22,3 +22,4 @@ dependencyResolutionManagement {
 rootProject.name = "Banking App"
 include(":app")
 include(":domain")
+include(":data")

@@ -8,5 +8,5 @@ internal data class Account(
     @PrimaryKey val id: Int,
     val type: String,
     val balance: Double,
-    val userId: Int
+    val userId: Int = -1
 )

@@ -8,7 +8,7 @@ import com.app.data.base.entity.Transaction
 import java.util.Date
 
 @Dao
-internal interface TransactionDao {
+interface TransactionDao {
     @Query("SELECT * FROM `transaction` WHERE accountId = :accountId LIMIT :limit OFFSET :offset")
     fun findBy(accountId: Int, limit: Int, offset: Int): List<Transaction>
 

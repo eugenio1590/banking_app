@@ -18,7 +18,7 @@ import java.time.YearMonth
  * @property transactionDao The data access object (DAO) providing methods for interacting with the transactionn database.
  */
 internal class TransactionDataSource(
-    private val transactionMapper: TransactionMapper,
+    private val transactionMapper: TransactionMapper = TransactionMapper(),
     private val transactionDao: TransactionDao
 ) : TransactionRepository {
     override suspend fun findBy(account: Account, page: Int, limit: Int): List<Transaction> {

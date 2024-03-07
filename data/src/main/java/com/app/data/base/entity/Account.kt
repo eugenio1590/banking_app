@@ -4,7 +4,7 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 @Entity
-internal data class Account(
+data class Account(
     @PrimaryKey val id: Int,
     val type: String,
     val balance: Double,

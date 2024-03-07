@@ -2,6 +2,7 @@ package com.app.domain.interactor.transaction.search
 
 import com.app.domain.model.Account
 import com.app.domain.model.Transaction
+import com.app.domain.repository.TransactionRepository
 import java.time.Month
 
 /**
@@ -33,4 +34,10 @@ interface SearchTransactions {
      * @return A list of [Transaction] objects associated with the account within the month and year.
      */
     suspend operator fun invoke(account: Account, month: Month, year: Int): List<Transaction>
+
+    object Factory {
+        fun create(transactionRepository: TransactionRepository): SearchTransactions {
+            return SearchTransactionsUseCase(transactionRepository)
+        }
+    }
 }

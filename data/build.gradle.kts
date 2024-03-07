@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.androidLibrary)
     alias(libs.plugins.jetbrainsKotlinAndroid)
     alias(libs.plugins.jetbrainsKotlinKapt)
+    alias(libs.plugins.hilt)
 }
 
 android {
@@ -40,7 +41,9 @@ android {
 dependencies {
     api(project(":domain"))
     implementation(libs.androidx.room.runtime)
+    implementation(libs.dagger.hilt)
     implementation(libs.androidx.room.ktx)
+    kapt(libs.dagger.hilt.compiler)
     kapt(libs.androidx.room.compiler)
     testImplementation(libs.junit)
     testImplementation(libs.mockk)

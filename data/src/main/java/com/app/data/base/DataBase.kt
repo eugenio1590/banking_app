@@ -21,7 +21,7 @@ import com.app.data.base.entity.User
     ]
 )
 @TypeConverters(DateConverter::class)
-internal abstract class DataBase : RoomDatabase() {
+abstract class DataBase : RoomDatabase() {
     abstract fun userDao(): UserDao
     abstract fun accountDao(): AccountDao
     abstract fun transactionDao(): TransactionDao

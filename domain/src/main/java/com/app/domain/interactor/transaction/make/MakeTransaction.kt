@@ -3,6 +3,8 @@ package com.app.domain.interactor.transaction.make
 import com.app.domain.exception.Error
 import com.app.domain.model.Account
 import com.app.domain.model.Transaction
+import com.app.domain.repository.AccountRepository
+import com.app.domain.repository.TransactionRepository
 
 /**
  * Interface for making financial transactions associated with a specific account.
@@ -34,4 +36,13 @@ interface MakeTransaction {
      */
     @Throws(Error.TransactionError::class)
     suspend fun withdrawal(account: Account, amount: Double): Account
+
+    object Factory {
+        fun create(
+            transactionRepository: TransactionRepository,
+            accountRepository: AccountRepository
+        ): MakeTransaction {
+            return MakeTransactionUseCase(transactionRepository, accountRepository)
+        }
+    }
 }

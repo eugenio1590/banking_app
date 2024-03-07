@@ -16,7 +16,7 @@ import com.app.domain.repository.AccountRepository
  * @property accountDao The data access object (DAO) providing methods for interacting with the account database.
  */
 internal class AccountDataSource(
-    private val accountMapper: AccountMapper,
+    private val accountMapper: AccountMapper = AccountMapper(),
     private val accountDao: AccountDao
 ) : AccountRepository {
     override suspend fun findBy(user: User): List<Account> {

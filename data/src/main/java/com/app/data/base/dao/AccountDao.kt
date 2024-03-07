@@ -6,7 +6,7 @@ import androidx.room.Update
 import com.app.data.base.entity.Account
 
 @Dao
-internal interface AccountDao {
+interface AccountDao {
     @Query("SELECT * FROM account WHERE userId = :userId")
     suspend fun findBy(userId: Int): List<Account>
 

@@ -9,6 +9,7 @@ import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.ExposedDropdownMenuBox
 import androidx.compose.material3.ExposedDropdownMenuDefaults
+import androidx.compose.material3.LinearProgressIndicator
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.material3.TextField
@@ -23,6 +24,8 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import com.app.banking.R
+import com.app.banking.presentation.accounts.TransactionState
+import com.app.banking.ui.component.ErrorCard
 import com.app.domain.model.Account
 import com.app.domain.model.Transaction
 
@@ -30,6 +33,7 @@ import com.app.domain.model.Transaction
 @Composable
 fun TransactionForm(
     type: Transaction.Type,
+    state: TransactionState,
     accounts: List<Account>,
     onPerform: (Double, Account) -> Unit,
     onCancel: () -> Unit
@@ -42,6 +46,12 @@ fun TransactionForm(
         title = { Text(text = type.name) },
         text = {
             Column {
+                if (state is TransactionState.Failure) {
+                    ErrorCard(message = stringResource(id = state.message.message))
+                    Spacer(modifier = Modifier.height(15.dp))
+                } else if (state is TransactionState.Loading) {
+                    LinearProgressIndicator(modifier = Modifier.height(4.dp).weight(1f))
+                }
                 TextField(
                     value = amount.toString(),
                     onValueChange = { amount = it.toDouble() },

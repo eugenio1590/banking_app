@@ -27,17 +27,17 @@ import com.app.banking.presentation.ErrorMessage
 
 @Composable
 fun ErrorMessageScreen(message: ErrorMessage, tryAgain: () -> Unit) {
-    Spacer(modifier = Modifier.height(20.dp))
-
-    Image(
-        painter = painterResource(id = message.image),
-        contentDescription = null,
-        contentScale = ContentScale.Fit,
-        modifier = Modifier
-            .height(200.dp)
-            .fillMaxWidth(),
-
+    if (message.image != null) {
+        Spacer(modifier = Modifier.height(20.dp))
+        Image(
+            painter = painterResource(id = message.image),
+            contentDescription = null,
+            contentScale = ContentScale.Fit,
+            modifier = Modifier
+                .height(200.dp)
+                .fillMaxWidth(),
         )
+    }
 
     Spacer(modifier = Modifier.height(20.dp))
     //.........................Text: title

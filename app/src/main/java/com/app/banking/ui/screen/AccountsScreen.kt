@@ -50,6 +50,7 @@ fun AccountsScreen(user: User, viewModel: ViewModel = viewModel()) {
                     if (transactionType != null) {
                         TransactionForm(
                             type = transactionType,
+                            state = uiState.transactionState,
                             accounts = loadState.accounts,
                             onPerform = { amount, account ->
                                 val intent = when (transactionType) {

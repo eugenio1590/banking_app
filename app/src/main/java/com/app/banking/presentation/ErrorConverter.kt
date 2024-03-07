@@ -17,10 +17,14 @@ open class ErrorConverter {
      * @return An instance of [ErrorMessage] representing the converted error information.
      */
     open fun convert(error: Exception): ErrorMessage = when (error) {
-        is TransactionError.NonPositiveAmountError -> TODO()
-        is TransactionError.ZeroBalanceError -> TODO()
-        is TransactionError.InsufficientBalanceError -> TODO()
-        is TransactionError.TransactionProcessingError -> TODO()
-        else -> TODO()
+        is TransactionError.NonPositiveAmountError ->
+            ErrorMessage.NonPositiveAmountMessage
+        is TransactionError.ZeroBalanceError ->
+            ErrorMessage.ZeroBalanceMessage
+        is TransactionError.InsufficientBalanceError ->
+            ErrorMessage.InsufficientBalanceMessage
+        is TransactionError.TransactionProcessingError ->
+            ErrorMessage.TransactionProcessingMessage
+        else -> ErrorMessage.UnknownMessage
     }
 }

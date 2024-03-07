@@ -1,5 +1,6 @@
 package com.app.banking.ui.account.search
 
+import android.widget.Toast
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -16,11 +17,12 @@ import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
@@ -31,6 +33,7 @@ import com.app.domain.model.Account
 
 @Composable
 fun AccountCard(account: Account) {
+    val context = LocalContext.current
     val colorScheme = MaterialTheme.colorScheme
 
     Card(
@@ -72,7 +75,10 @@ fun AccountCard(account: Account) {
 
             }
 
-            OutlinedButton(onClick = { /*TODO*/ }) {
+            TextButton(onClick = {
+                /*TODO*/
+                Toast.makeText(context, "Coming soon", Toast.LENGTH_SHORT).show()
+            }) {
                 Icon(
                     imageVector = Icons.AutoMirrored.Filled.KeyboardArrowRight,
                     contentDescription = "See Transactions",

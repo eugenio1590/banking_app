@@ -62,6 +62,7 @@ dependencies {
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
     implementation(libs.dagger.hilt)
+    implementation(libs.androidx.lifecycle.viewmodel.compose)
     kapt(libs.dagger.hilt.compiler)
     testImplementation(libs.junit)
     testImplementation(libs.mockk)

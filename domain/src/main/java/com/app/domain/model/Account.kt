@@ -16,4 +16,6 @@ data class Account(val id: Int, val type: Type, val balance: Double) {
         CURRENT, // Represents a current/checking account
         SAVING   // Represents a savings account
     }
+
+    override fun toString(): String = "${type.name}  - $$balance"
 }

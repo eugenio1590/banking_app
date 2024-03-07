@@ -3,4 +3,11 @@
 
     <!-- Actions -->
     <string name="try_again_action">Try again</string>
+    <string name="deposit_action">Deposit</string>
+    <string name="withdrawal_action">Withdrawal</string>
+    <string name="confirm_action">Confirm</string>
+
+    <!-- Labels -->
+    <string name="amount_label">Amount</string>
+    <string name="select_account_label">Select Account</string>
 </resources>
